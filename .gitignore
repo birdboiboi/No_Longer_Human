@@ -4,7 +4,7 @@
 # Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore
 #
 /**/*.meta
-*.meta
+/*.meta
 Library/ArtifactDB
 Library/SourceAssetDB
 Library/shadercompiler-UnityShaderCompiler.exe0.log
