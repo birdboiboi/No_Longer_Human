@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
+
+
 
 public class Player : MonoBehaviour, IPlayer
 {
@@ -47,11 +50,26 @@ public class Player : MonoBehaviour, IPlayer
     // Update is called once per frame
     void Update()
     {
+        GameObject target = GetTarget(Input.mousePosition);
         
     }
 
     void FixedUpdate()
     {
         Move();
+    }
+
+    private GameObject GetTarget(Vector3 mouse)
+    {
+        Ray ray = Camera.main.ScreenPointToRay(mouse);
+        RaycastHit[] hits = Physics.RaycastAll(ray);
+        GameObject objectHit = FilterHitForObject(hits);
+        return objectHit;
+    }
+
+    private GameObject FilterHitForObject(RaycastHit[] hits)
+    {
+        return Array.FindAll(hits, hit => hit.transform.gameObject.layer == 8)[0]
+                    .transform.gameObject;
     }
 }
