@@ -1,7 +1,11 @@
 ﻿using UnityEngine;
 
-public interface IBrain
+namespace PlayerScripts.Brain
 {
-    public (float x, float y) GetMouse();
-    public Vector3 GetMovement();
+    public interface IBrain
+    {
+        public (float x, float y) GetMouse();
+        public Vector3 GetMovement();
+    }
+
 }
