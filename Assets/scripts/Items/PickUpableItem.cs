@@ -12,7 +12,7 @@ namespace Items
         public Eyes eyes;
         private bool pickedUp = false;
         private bool rotating = false;
-        private const int RotationSpeed = 1;
+        private const int RotationSpeed = 10;
 
         void Start()
         {
@@ -47,8 +47,8 @@ namespace Items
 
         public void Rotate()
         {
-            var xRotation = Input.GetAxis("Mouse X") * RotationSpeed * -Mathf.Rad2Deg;
-            var yRotation = Input.GetAxis("Mouse Y") * RotationSpeed * Mathf.Rad2Deg;
+            var xRotation = Input.GetAxis("Mouse X") * RotationSpeed * Time.deltaTime * -Mathf.Rad2Deg;
+            var yRotation = Input.GetAxis("Mouse Y") * RotationSpeed * Time.deltaTime  * Mathf.Rad2Deg;
 
             transform.Rotate(Vector3.up, xRotation, Space.World);
             transform.Rotate(Vector3.right, yRotation, Space.World);
@@ -64,14 +64,15 @@ namespace Items
             Drop();
         }
 
-        bool OnSpaceDown()
+        bool StartRotating()
         {
             Cursor.lockState = CursorLockMode.None;
             eyes.locked = true;
+            Rotate();
             return true;
         }
 
-        bool OnSpaceUp()
+        bool StopRotating()
         {
             Cursor.lockState = CursorLockMode.Locked;
             eyes.locked = false;
@@ -80,11 +81,7 @@ namespace Items
 
         void Update()
         {
-            rotating = Input.GetKey("space") ? OnSpaceDown() : OnSpaceUp();
-            if (pickedUp & rotating)
-            {
-                Rotate();
-            }
+            rotating = Input.GetKey("space") & pickedUp ? StartRotating() : StopRotating();
         }
     }
 }
