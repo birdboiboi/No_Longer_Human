@@ -7,7 +7,7 @@ namespace PlayerScripts.Arms
     public class Arms: MonoBehaviour, IArms
     {
 
-        public void PickUp(PickUpableItem item, Transform destination)
+        public void PickUp(PickUpableAndRotatableItem item, Transform destination)
         {
             item.PickUp(destination);
         }

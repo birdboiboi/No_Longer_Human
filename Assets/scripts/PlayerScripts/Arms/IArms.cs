@@ -9,6 +9,6 @@ namespace PlayerScripts.Arms
         void Unlock(Door target);
         void Lock(Door target);
         void OpenInventory();
-        void PickUp(PickUpableItem item, Transform destination);
+        void PickUp(PickUpableAndRotatableItem item, Transform destination);
     }
 }
