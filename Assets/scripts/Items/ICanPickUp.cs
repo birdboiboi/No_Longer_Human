@@ -2,7 +2,7 @@
 
 namespace Items
 {
-    public interface CanPickUp
+    public interface ICanPickUp
     {
         public void PickUp(Transform guide);
         public void Drop();

@@ -40,7 +40,7 @@ namespace PlayerScripts.Brain
         
         public void ExecuteFixedUpdateGameLoop()
         {
-            legs.Walk(player);
+            legs.Move(player);
         }
     }
 }

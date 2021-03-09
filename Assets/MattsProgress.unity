@@ -235,6 +235,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brain: {fileID: 700773019}
   cam: {fileID: 334458476}
+  locked: 0
 --- !u!1 &587131836
 GameObject:
   m_ObjectHideFlags: 0
@@ -455,6 +456,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destination: {fileID: 1948417489}
+  eyes: {fileID: 334458477}
 --- !u!65 &860592952
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -806,9 +808,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1948417488}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1.585}
-  m_LocalScale: {x: 0.96858996, y: 2.4984777, z: 0.96858996}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 334458473}
   m_RootOrder: 0

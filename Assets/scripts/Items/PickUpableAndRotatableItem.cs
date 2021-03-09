@@ -1,11 +1,12 @@
 ﻿using System;
 using PlayerScripts.Eyes;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 
 namespace Items
 {
-    public class PickUpableItem: Item, CanPickUp
+    public class PickUpableAndRotatableItem: Item, ICanPickUp, ICanRotate
     {
         private Rigidbody rb;
         public Transform destination;
@@ -64,7 +65,7 @@ namespace Items
             Drop();
         }
 
-        bool StartRotating()
+        public bool StartRotating()
         {
             Cursor.lockState = CursorLockMode.None;
             eyes.locked = true;
@@ -72,13 +73,13 @@ namespace Items
             return true;
         }
 
-        bool StopRotating()
+        public bool StopRotating()
         {
             Cursor.lockState = CursorLockMode.Locked;
             eyes.locked = false;
             return false;
         }
-
+        
         void Update()
         {
             rotating = Input.GetKey("space") & pickedUp ? StartRotating() : StopRotating();
