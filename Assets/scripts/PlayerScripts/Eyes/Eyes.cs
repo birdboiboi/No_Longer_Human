@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Events;
 using UnityEngine;
 using PlayerScripts.Brain;
 
@@ -22,7 +23,19 @@ namespace PlayerScripts.Eyes
         {
             Cursor.lockState = CursorLockMode.Locked;
             cam = GetComponent<Camera>();
-            
+            EventsManager.instance.CameraLockTrigger += LockCamera;
+            EventsManager.instance.CameraUnlockTrigger += UnlockCamera;
+
+        }
+
+        private void LockCamera()
+        {
+            locked = true;
+        }
+
+        private void UnlockCamera()
+        {
+            locked = false;
         }
         
         public (bool hasHit, RaycastHit hit) CurrentFocus()

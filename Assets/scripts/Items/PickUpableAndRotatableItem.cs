@@ -1,4 +1,5 @@
 ﻿using System;
+using Events;
 using PlayerScripts.Eyes;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
@@ -10,7 +11,6 @@ namespace Items
     {
         private Rigidbody rb;
         public Transform destination;
-        public Eyes eyes;
         private bool pickedUp = false;
         private bool rotating = false;
         private const int RotationSpeed = 10;
@@ -34,9 +34,10 @@ namespace Items
 
         private void CleanUp()
         {
+            EventsManager.instance.OnCameraUnlockTrigger();
+            
             rb.useGravity = true;
             rb.isKinematic = false;
-            eyes.locked = false;
             rb.transform.SetParent(null);
             pickedUp = false;
         }
@@ -67,16 +68,14 @@ namespace Items
 
         public bool StartRotating()
         {
-            Cursor.lockState = CursorLockMode.None;
-            eyes.locked = true;
+            EventsManager.instance.OnCameraLockTrigger();
             Rotate();
             return true;
         }
 
         public bool StopRotating()
         {
-            Cursor.lockState = CursorLockMode.Locked;
-            eyes.locked = false;
+            EventsManager.instance.OnCameraUnlockTrigger();
             return false;
         }
         
