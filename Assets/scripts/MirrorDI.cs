@@ -29,12 +29,24 @@ public abstract class  MirrorDI : MonoBehaviour
     public static Vector3 newLookPosition(Vector3 u, Vector3 v)
     {
         Vector3 dirVect = Vector3.Normalize(u-v);
+
+        //cartesian to spherical 
         float theta= Mathf.Atan((Mathf.Sqrt(Mathf.Pow(dirVect.x, 2) + Mathf.Pow(dirVect.y, 2))/(dirVect.z)));
+        
         float phi = Mathf.Atan(dirVect.y + .0000000001f / dirVect.x);
 
-
+        //if dirVect.x > 0
+        //then multiply theta by -1
+        //if dirVect.x < 0 
+        //then multiply theta by 1
         float flippyTheta = theta * (Mathf.Max(dirVect.x, 0) / (dirVect.x + .00001f)) * -1 + theta * (Mathf.Min(dirVect.x, 0) / (dirVect.x + .00001f));
-
+        /*
+         * 
+         * if (dirVect.x > 0){
+         *   flippyTheta = - theta;
+         * }
+         * 
+         */
         //flippyTheta = theta * Mathf.Max(dirVect.x * dirVect.z, 0)/(dirVect.x * dirVect.z) * -1 + theta * Mathf.Min(dirVect.x * dirVect.z, 0)/(dirVect.x * dirVect.z);
         Debug.Log(theta);
         Debug.Log("theta " +flippyTheta + " dirVect " + dirVect);
@@ -42,5 +54,21 @@ public abstract class  MirrorDI : MonoBehaviour
         //return new Vector3(10, 10, 1);
 
 
+    }
+
+    public static Vector3 project(Vector3 u, Vector3 v)
+    {
+        // proj_v u = ((u dot v)/ (mag(v)^2)scaled by v
+        Vector3 proj_vU = (Vector3.Dot(u, v) / (v.magnitude)) * v/ v.magnitude;
+        
+        Vector3 orthProjvU = v-proj_vU ;
+        //+ orthProjvU
+        return orthProjvU;
+
+    }
+    public static Vector3 transformRotation(Quaternion rotation, Vector3 coordinates)
+    {
+        Matrix4x4 m = Matrix4x4.Rotate(rotation);
+        return m.MultiplyPoint3x4(coordinates);
     }
 }
