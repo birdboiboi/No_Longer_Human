@@ -7,9 +7,9 @@ using UnityEngine.PlayerLoop;
 
 namespace Items
 {
-    public class PickUpableAndRotatableItem: Item, ICanPickUp, ICanRotate
+    public  class PickUpableAndRotatableItem: Item, ICanPickUp, ICanRotate
     {
-        private Rigidbody rb;
+        public Rigidbody rb;
         public Transform destination;
         private bool pickedUp = false;
         private bool rotating = false;
