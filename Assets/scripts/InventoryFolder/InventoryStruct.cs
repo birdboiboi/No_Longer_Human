@@ -5,16 +5,18 @@ using Items;
 
 public class InventoryStruct
 {
-    public List<GameObject> items;
+    public List<GameObject> items = new List<GameObject>();
     public int max;
 
     public InventoryStruct(int size)
     {
         max = size;
+        
     }
 
     public void addItem(GameObject item)
     {
+        
         items.Add(item);
     }
 
@@ -30,7 +32,7 @@ public class InventoryStruct
 
     string ToString()
     {
-        string outStr = "";
+        string outStr = "in this are";
         foreach (GameObject item in listItems())
         {
             outStr += item.name + ",";

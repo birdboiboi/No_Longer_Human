@@ -371,7 +371,7 @@ MonoBehaviour:
   - {fileID: 3669287552671513829, guid: d264b492cfb577b4ca04cd64ff15cc1a, type: 3}
   inventoryUI: {fileID: 0}
   StoreDropUI: {fileID: 2087471549326668687, guid: cc4629f067b1af044bc1b6270db6fd59, type: 3}
-  invent: {fileID: 0}
+  invent: {fileID: 1611097723}
   defaultImage: {fileID: 0}
 --- !u!1 &587131836
 GameObject:
@@ -660,6 +660,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
   destination: {fileID: 1948417489}
+  freeze: 0
 --- !u!65 &860592952
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -940,6 +941,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
   destination: {fileID: 1948417489}
+  freeze: 0
   letterIdx: 0
   lh: {fileID: 556757687}
 --- !u!23 &1564730928
@@ -1193,7 +1195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bagSize: 6
-  lh: {fileID: 0}
+  lh: {fileID: 556757687}
 --- !u!1 &1638989519
 GameObject:
   m_ObjectHideFlags: 0
@@ -1556,6 +1558,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
   destination: {fileID: 1948417489}
+  freeze: 0
   picture: {fileID: 0}
   lh: {fileID: 556757687}
 --- !u!54 &2023833948

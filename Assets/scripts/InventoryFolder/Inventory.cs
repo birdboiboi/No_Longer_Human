@@ -25,15 +25,16 @@ public class Inventory : MonoBehaviour
         {
             if (!UIOpened)
             {
-                UIOpened = true;
+                Debug.Log("bag " + bag.items);
+                Debug.Log("Contents " + bag.items[0]);
                 lh.SendMessage("DisplayInventory");
             }
             else
             {
-                UIOpened = true;
+                
                 lh.SendMessage("CloseDisplay");
             }
-
+            UIOpened = !UIOpened;
         }
     }
     

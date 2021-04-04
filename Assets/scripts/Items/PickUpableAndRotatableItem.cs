@@ -87,7 +87,7 @@ namespace Items
         {
             if (freeze)
             {
-                print(freeze + this.name);
+                //print(freeze + this.name);
                 rotating = Input.GetKey("space") & pickedUp ? StartRotating() : StopRotating();
             }
         }

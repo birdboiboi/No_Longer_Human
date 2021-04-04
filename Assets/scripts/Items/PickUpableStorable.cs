@@ -21,16 +21,20 @@ public class PickUpableStorable : PickUpableAndRotatableItem,ICanStore
 
         playerBag = destination.transform.GetChild(0).GetComponent<Inventory>().bag;
         playerBag.addItem(this.gameObject);
-        Debug.Log(playerBag);
-        Destroy(this);
+        Debug.Log(playerBag + "player bag");
+        DropAndClear();
+        this.gameObject.SetActive(false);
     }
 
     public void UnStore()
     {
-        Instantiate(this.gameObject, destination);
+        this.gameObject.transform.position = destination.transform.position;
+        this.gameObject.SetActive(false);
         playerBag.removeItem(this.gameObject);
         playerBag = null;
-        
+        Drop();
+
+
     }
 
     void OnMouseDown()
