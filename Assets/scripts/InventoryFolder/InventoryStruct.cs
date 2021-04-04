@@ -1,0 +1,40 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using Items;
+
+public class InventoryStruct
+{
+    public List<GameObject> items;
+    public int max;
+
+    public InventoryStruct(int size)
+    {
+        max = size;
+    }
+
+    public void addItem(GameObject item)
+    {
+        items.Add(item);
+    }
+
+    public void removeItem(GameObject item)
+    {
+        items.Remove(item);
+    }
+
+    public List<GameObject> listItems()
+    {
+        return items;
+    }
+
+    string ToString()
+    {
+        string outStr = "";
+        foreach (GameObject item in listItems())
+        {
+            outStr += item.name + ",";
+        }
+        return outStr;
+    }
+}

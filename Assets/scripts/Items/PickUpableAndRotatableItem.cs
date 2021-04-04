@@ -7,12 +7,14 @@ using UnityEngine.PlayerLoop;
 
 namespace Items
 {
+    
     public  class PickUpableAndRotatableItem: Item, ICanPickUp, ICanRotate
     {
         public Rigidbody rb;
         public Transform destination;
         private bool pickedUp = false;
         private bool rotating = false;
+        public bool freeze = false;
         private const int RotationSpeed = 10;
 
         void Start()
@@ -22,6 +24,7 @@ namespace Items
 
         public void PickUp(Transform guide)
         {
+            freeze = true;
             Transform transform1;
             (transform1 = rb.transform).SetParent(guide);
             pickedUp = true;
@@ -34,6 +37,7 @@ namespace Items
 
         private void CleanUp()
         {
+            freeze = false;
             EventsManager.instance.OnCameraUnlockTrigger();
             
             rb.useGravity = true;
@@ -81,7 +85,11 @@ namespace Items
         
         void Update()
         {
-            rotating = Input.GetKey("space") & pickedUp ? StartRotating() : StopRotating();
+            if (freeze)
+            {
+                print(freeze + this.name);
+                rotating = Input.GetKey("space") & pickedUp ? StartRotating() : StopRotating();
+            }
         }
     }
 }
