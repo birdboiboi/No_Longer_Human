@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class LetterHandler : MonoBehaviour
 {
     
@@ -14,7 +15,7 @@ public class LetterHandler : MonoBehaviour
     public Inventory invent;
 
     private GameObject displayObject;
-    public Image defaultImage;
+    public Sprite defaultImage;
 
     //public bool viewThis = false;
     // Start is called before the first frame update
@@ -35,6 +36,7 @@ public class LetterHandler : MonoBehaviour
     void DisplayInventory()
     {
         displayObject = Instantiate(inventoryUI, can.transform);
+        displayObject.GetComponent<InventoryBtnManager>().bag = invent;
         displayObject.transform.SetParent(transform.parent);
     }
 

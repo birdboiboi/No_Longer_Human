@@ -21,12 +21,11 @@ public class Inventory : MonoBehaviour
    
    void Update()
     {
-        if(Input.GetKey(KeyCode.E))
+        if(Input.GetKeyDown(KeyCode.E))
         {
             if (!UIOpened)
             {
-                Debug.Log("bag " + bag.items);
-                Debug.Log("Contents " + bag.items[0]);
+                
                 lh.SendMessage("DisplayInventory");
             }
             else

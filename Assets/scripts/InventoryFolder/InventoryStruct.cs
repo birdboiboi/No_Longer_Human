@@ -7,12 +7,14 @@ public class InventoryStruct
 {
     public List<GameObject> items = new List<GameObject>();
     public int max;
+    public int size;
 
     public InventoryStruct(int size)
     {
         max = size;
         
     }
+    
 
     public void addItem(GameObject item)
     {

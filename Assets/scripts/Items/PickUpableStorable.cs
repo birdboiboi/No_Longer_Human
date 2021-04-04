@@ -12,7 +12,7 @@ using UnityEditor.Experimental.GraphView;
 
 public class PickUpableStorable : PickUpableAndRotatableItem,ICanStore
 {
-    public Image picture;
+    public Sprite picture;
     public InventoryStruct playerBag;
     public LetterHandler lh;
     private bool openedUI = false;
@@ -61,7 +61,7 @@ public class PickUpableStorable : PickUpableAndRotatableItem,ICanStore
     {
         if (freeze)
         {
-            print(freeze + this.name);
+            //print(freeze + this.name);
             //rotating = Input.GetKey("space") & pickedUp ? StartRotating() : StopRotating();
         }
     }

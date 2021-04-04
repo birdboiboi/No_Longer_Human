@@ -369,10 +369,10 @@ MonoBehaviour:
   can: {fileID: 80123182}
   lettersUI:
   - {fileID: 3669287552671513829, guid: d264b492cfb577b4ca04cd64ff15cc1a, type: 3}
-  inventoryUI: {fileID: 0}
+  inventoryUI: {fileID: 682583067131213342, guid: b090ae2e94b38e541b869a2e965caec4, type: 3}
   StoreDropUI: {fileID: 2087471549326668687, guid: cc4629f067b1af044bc1b6270db6fd59, type: 3}
   invent: {fileID: 1611097723}
-  defaultImage: {fileID: 0}
+  defaultImage: {fileID: 21300000, guid: 7655344f5c279b04187bce95870675c0, type: 3}
 --- !u!1 &587131836
 GameObject:
   m_ObjectHideFlags: 0
@@ -1559,7 +1559,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   destination: {fileID: 1948417489}
   freeze: 0
-  picture: {fileID: 0}
+  picture: {fileID: 21300000, guid: c926d69d2e735a04d917dc9972fd7c4d, type: 3}
   lh: {fileID: 556757687}
 --- !u!54 &2023833948
 Rigidbody:
