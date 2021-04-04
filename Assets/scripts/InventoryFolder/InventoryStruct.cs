@@ -27,6 +27,11 @@ public class InventoryStruct
         items.Remove(item);
     }
 
+    public GameObject getItem(int idx)
+    {
+        return items[idx];
+    }
+
     public List<GameObject> listItems()
     {
         return items;

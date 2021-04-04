@@ -28,8 +28,9 @@ public class PickUpableStorable : PickUpableAndRotatableItem,ICanStore
 
     public void UnStore()
     {
+        this.gameObject.SetActive(true);
         this.gameObject.transform.position = destination.transform.position;
-        this.gameObject.SetActive(false);
+        
         playerBag.removeItem(this.gameObject);
         playerBag = null;
         Drop();
@@ -40,10 +41,10 @@ public class PickUpableStorable : PickUpableAndRotatableItem,ICanStore
     void OnMouseDown()
     {
         
-            Cursor.lockState = CursorLockMode.None;
-            EventsManager.instance.OnCameraLockTrigger();
-            lh.SendMessage("DisplayStoreDrop", this);
-            PickUp(destination);
+        Cursor.lockState = CursorLockMode.None;
+        EventsManager.instance.OnCameraLockTrigger();
+        lh.SendMessage("DisplayStoreDrop", this);
+        PickUp(destination);
     }
 
     void OnMouseUp()
