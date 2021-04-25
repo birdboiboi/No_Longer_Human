@@ -40,6 +40,7 @@ public class Door : MonoBehaviour
     public void Open() { 
 
         doorAnim.SetTrigger("Open");
+        doorAnim.ResetTrigger("Close");
         isOpen = !isOpen;
         col.isTrigger = false;
 
@@ -49,6 +50,7 @@ public class Door : MonoBehaviour
     {
 
         doorAnim.SetTrigger("Close");
+        doorAnim.ResetTrigger("Open");
         isOpen = !isOpen;
         col.isTrigger = true;
 
