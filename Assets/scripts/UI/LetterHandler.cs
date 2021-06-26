@@ -17,9 +17,14 @@ public class LetterHandler : MonoBehaviour
     private GameObject displayObject;
     public Sprite defaultImage;
 
+
+    bool displayObjectState = false;
+    bool StoreDropUIState = false;
+    
+
     //public bool viewThis = false;
     // Start is called before the first frame update
-   
+
 
     // Update is called once per frame
     void DisplayLetter(int i)

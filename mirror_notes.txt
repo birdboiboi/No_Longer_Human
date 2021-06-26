@@ -1,0 +1,10 @@
+Situations
+	walk in front of mirror, doppleganger moves with player as reflection, orientation inverted too
+	maybe effect to show mirror cross???
+	walk into mirror camera switches from dai to dopplegaanger(sonya) and vice versa
+	after entering rotate 180deg the doppleganger's camera (previous player's orientation), then see ^^^
+	animations will be triggered at the same time for the same walking animation call
+	when mirror faces x + mirror 2 reflects x +: orientations must be inveresed and position data same
+	when mirror faces x - mirror 2 reflects x - : orientations must be inveresed and position data same
+	when mirror faces y + mirror 2 reflects y +  : orientations must be inveresed and position data same
+	when mirror faces y - mirror 2 reflects y -  : orientations must be inveresed and position data same
