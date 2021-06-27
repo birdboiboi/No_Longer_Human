@@ -12,32 +12,76 @@ public class Terminal_UI : UI_Handler
     
     public Vector3 offsetTopRight = new Vector3(-36.43f, 32.33f, 0f);
     private RectTransform originCmd;
-    public GameObject[] cmds;
+    public HistoryNode head;
+
+    private int header = 0;//i think this name works?
+
 
     public void Start()
     {
-        originCmd = this.GetComponent<RectTransform>();
         LoadTerm();
-        
+
     }
 
     public void LoadTerm()
     {
+        head = new HistoryNode(terminalPreset, this.gameObject);
+        Add();
+        Add();
+        Add();
+        Add();
+        Add();
+        Add();
+        Add();
+        Add();
+        Add();
+        Add();
+        Add();
+        Add();
+        Add();
+        Add();
+        Add();
+        Add();
+        Add();
+        Add();
+        Add();
+        Add();
+        Add();
+        Add();
+        Add();
+        Add();
+        Add();
+        Add();
+        Add();
+        Add();
+        Add();
+        Add();
+        Add();
+        Add();
+        Add();
+        Add();
+        Add();
+        Add();
+        Add();
+        Add();
+        Add();
+        Add();
+        Add();
+        Add();
+        Add();
+        Add();
+        Add();
+       
 
-        cmds = new GameObject[maxCmds];
-        Vector3 topLeft = new Vector3(0, originCmd.rect.y,0) + originCmd.transform.position;
-        Debug.Log("topLeftVector" + topLeft);
-        for (int iter = 0; iter < maxCmds; iter++ )
-        {
-
-            cmds[iter] = Instantiate(terminalPreset, Vector3.up* (float)iter * spacing, this.transform.rotation);
-            cmds[iter].GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, 0, originCmd.rect.width);
-            cmds[iter].GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, (float)iter * spacing-105, originCmd.rect.height);
-            cmds[iter].GetComponent<Text>().text = textDefault;
-            cmds[iter].transform.parent = this.transform;
-           
-        }
     }
+
+
+    public void Add()
+    {
+        HistoryNode temp = new HistoryNode(terminalPreset, this.gameObject, head);
+        head = temp.AppendTo(temp);
+    }
+
 
     public void FocusTerminal()
     {
